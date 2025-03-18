@@ -1,0 +1,14 @@
+# Ignore Python cache and environment files
+__pycache__/
+*.pyc
+.venv/
+
+# Ignore IDE/Editor files
+.vscode/
+.idea/
+
+# Ignore environment variables
+.env
+
+# Custom ignores
+constants.py
