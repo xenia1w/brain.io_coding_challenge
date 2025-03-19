@@ -14,11 +14,9 @@ st.set_page_config(
 st.title("Frontend Cracks")
 st.write("A coding challenge from Brayn.io")
 
-# Fetch invoice data
 data = fetch_invoices().json()
 invoices = data['_embedded']['list_debits']
 
-# Process data into DataFrame
 invoice_list = []
 for invoice in invoices:
     invoice_data = {
@@ -40,7 +38,7 @@ edited_df = st.data_editor(df, key="invoice_table", use_container_width=True, nu
 selected_invoice = edited_df.loc[edited_df["Select"] == True, "Invoice Number"]
 
 if not selected_invoice.empty:
-    # check which entry has been selected
+    # Get selected invoice ID
     invoice_id = selected_invoice.values[0]  
-    # api call to fetch document details
+
     display_details(invoice_id)
