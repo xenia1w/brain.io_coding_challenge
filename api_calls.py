@@ -25,7 +25,6 @@ def fetch_invoices():
 
     if auth_response.status_code == 200:
         access_token = auth_response.json().get("access_token")
-        print("Access Token:", access_token)
 
         headers = {
             "Authorization": f"Bearer {access_token}",
@@ -51,7 +50,6 @@ def fetch_invoice_details(id):
 
     if auth_response.status_code == 200:
         access_token = auth_response.json().get("access_token")
-        print("Access Token:", access_token)
 
         headers = {
             "Authorization": f"Bearer {access_token}",
@@ -71,4 +69,4 @@ def fetch_invoice_details(id):
         print("Response Headers:", auth_response.headers)
 
 if __name__ == "__main__":
-    fetch_invoice_details("3085")
+    details = fetch_invoice_details("3085")
